@@ -9,7 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @interface RLAgreementViewController : UIViewController {
-    
+    NSArray *htmlFiles_;
+	NSString *currentFile_;
 }
+
+@property (nonatomic, retain) IBOutlet UIWebView *webView;
+@property (nonatomic, retain) IBOutlet UIToolbar *toolBar;
 
 @end

@@ -7,15 +7,14 @@
 //
 
 #import "RLAgreementAppDelegate.h"
-
+#import "RootViewController.h"
 #import "RLAgreementViewController.h"
 
 @implementation RLAgreementAppDelegate
 
+@synthesize window = _window;
 
-@synthesize window=_window;
-
-@synthesize viewController=_viewController;
+@synthesize viewController = _viewController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -23,6 +22,14 @@
 	 
 	self.window.rootViewController = self.viewController;
 	[self.window makeKeyAndVisible];
+	
+	RLAgreementViewController *agreementController = [[RLAgreementViewController alloc] init];
+	
+	UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:agreementController];
+	[agreementController release];
+	
+	[self.viewController presentModalViewController:navController animated:YES];
+	
     return YES;
 }
 

@@ -16,6 +16,9 @@
 		162E22941381CF1300DADFC0 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 162E22921381CF1300DADFC0 /* MainWindow.xib */; };
 		162E22971381CF1300DADFC0 /* RLAgreementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 162E22961381CF1300DADFC0 /* RLAgreementViewController.m */; };
 		162E229A1381CF1300DADFC0 /* RLAgreementViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 162E22981381CF1300DADFC0 /* RLAgreementViewController.xib */; };
+		162E22A31381D67200DADFC0 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 162E22A11381D67200DADFC0 /* RootViewController.m */; };
+		162E22A41381D67200DADFC0 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 162E22A21381D67200DADFC0 /* RootViewController.xib */; };
+		162E22AC1381DF9D00DADFC0 /* File1.html in Resources */ = {isa = PBXBuildFile; fileRef = 162E22AB1381DF9D00DADFC0 /* File1.html */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,16 +26,20 @@
 		162E22801381CF1300DADFC0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		162E22821381CF1300DADFC0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		162E22841381CF1300DADFC0 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		162E22881381CF1300DADFC0 /* RLAgreement-Info.plist */ = {isa = PBXFileReference; path = "RLAgreement-Info.plist"; sourceTree = "<group>"; };
+		162E22881381CF1300DADFC0 /* RLAgreement-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RLAgreement-Info.plist"; sourceTree = "<group>"; };
 		162E228A1381CF1300DADFC0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		162E228C1381CF1300DADFC0 /* RLAgreement-Prefix.pch */ = {isa = PBXFileReference; path = "RLAgreement-Prefix.pch"; sourceTree = "<group>"; };
+		162E228C1381CF1300DADFC0 /* RLAgreement-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RLAgreement-Prefix.pch"; sourceTree = "<group>"; };
 		162E228D1381CF1300DADFC0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		162E228F1381CF1300DADFC0 /* RLAgreementAppDelegate.h */ = {isa = PBXFileReference; path = RLAgreementAppDelegate.h; sourceTree = "<group>"; };
+		162E228F1381CF1300DADFC0 /* RLAgreementAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RLAgreementAppDelegate.h; sourceTree = "<group>"; };
 		162E22901381CF1300DADFC0 /* RLAgreementAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RLAgreementAppDelegate.m; sourceTree = "<group>"; };
 		162E22931381CF1300DADFC0 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
-		162E22951381CF1300DADFC0 /* RLAgreementViewController.h */ = {isa = PBXFileReference; path = RLAgreementViewController.h; sourceTree = "<group>"; };
+		162E22951381CF1300DADFC0 /* RLAgreementViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RLAgreementViewController.h; sourceTree = "<group>"; };
 		162E22961381CF1300DADFC0 /* RLAgreementViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RLAgreementViewController.m; sourceTree = "<group>"; };
 		162E22991381CF1300DADFC0 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/RLAgreementViewController.xib; sourceTree = "<group>"; };
+		162E22A01381D67200DADFC0 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
+		162E22A11381D67200DADFC0 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		162E22A21381D67200DADFC0 /* RootViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RootViewController.xib; sourceTree = "<group>"; };
+		162E22AB1381DF9D00DADFC0 /* File1.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = File1.html; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +88,9 @@
 			children = (
 				162E228F1381CF1300DADFC0 /* RLAgreementAppDelegate.h */,
 				162E22901381CF1300DADFC0 /* RLAgreementAppDelegate.m */,
+				162E22A01381D67200DADFC0 /* RootViewController.h */,
+				162E22A11381D67200DADFC0 /* RootViewController.m */,
+				162E22A21381D67200DADFC0 /* RootViewController.xib */,
 				162E22921381CF1300DADFC0 /* MainWindow.xib */,
 				162E22951381CF1300DADFC0 /* RLAgreementViewController.h */,
 				162E22961381CF1300DADFC0 /* RLAgreementViewController.m */,
@@ -97,6 +107,7 @@
 				162E22891381CF1300DADFC0 /* InfoPlist.strings */,
 				162E228C1381CF1300DADFC0 /* RLAgreement-Prefix.pch */,
 				162E228D1381CF1300DADFC0 /* main.m */,
+				162E22AB1381DF9D00DADFC0 /* File1.html */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -151,6 +162,8 @@
 				162E228B1381CF1300DADFC0 /* InfoPlist.strings in Resources */,
 				162E22941381CF1300DADFC0 /* MainWindow.xib in Resources */,
 				162E229A1381CF1300DADFC0 /* RLAgreementViewController.xib in Resources */,
+				162E22A41381D67200DADFC0 /* RootViewController.xib in Resources */,
+				162E22AC1381DF9D00DADFC0 /* File1.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -164,6 +177,7 @@
 				162E228E1381CF1300DADFC0 /* main.m in Sources */,
 				162E22911381CF1300DADFC0 /* RLAgreementAppDelegate.m in Sources */,
 				162E22971381CF1300DADFC0 /* RLAgreementViewController.m in Sources */,
+				162E22A31381D67200DADFC0 /* RootViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
