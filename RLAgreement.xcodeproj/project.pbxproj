@@ -15,10 +15,10 @@
 		162E22911381CF1300DADFC0 /* RLAgreementAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 162E22901381CF1300DADFC0 /* RLAgreementAppDelegate.m */; };
 		162E22941381CF1300DADFC0 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 162E22921381CF1300DADFC0 /* MainWindow.xib */; };
 		162E22971381CF1300DADFC0 /* RLAgreementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 162E22961381CF1300DADFC0 /* RLAgreementViewController.m */; };
-		162E229A1381CF1300DADFC0 /* RLAgreementViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 162E22981381CF1300DADFC0 /* RLAgreementViewController.xib */; };
 		162E22A31381D67200DADFC0 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 162E22A11381D67200DADFC0 /* RootViewController.m */; };
 		162E22A41381D67200DADFC0 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 162E22A21381D67200DADFC0 /* RootViewController.xib */; };
 		162E22AC1381DF9D00DADFC0 /* File1.html in Resources */ = {isa = PBXBuildFile; fileRef = 162E22AB1381DF9D00DADFC0 /* File1.html */; };
+		169B8F241382ACD9000F5B66 /* RLAgreementViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 169B8F231382ACD9000F5B66 /* RLAgreementViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,11 +35,11 @@
 		162E22931381CF1300DADFC0 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
 		162E22951381CF1300DADFC0 /* RLAgreementViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RLAgreementViewController.h; sourceTree = "<group>"; };
 		162E22961381CF1300DADFC0 /* RLAgreementViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RLAgreementViewController.m; sourceTree = "<group>"; };
-		162E22991381CF1300DADFC0 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/RLAgreementViewController.xib; sourceTree = "<group>"; };
 		162E22A01381D67200DADFC0 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		162E22A11381D67200DADFC0 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		162E22A21381D67200DADFC0 /* RootViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RootViewController.xib; sourceTree = "<group>"; };
 		162E22AB1381DF9D00DADFC0 /* File1.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = File1.html; sourceTree = "<group>"; };
+		169B8F231382ACD9000F5B66 /* RLAgreementViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RLAgreementViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +86,7 @@
 		162E22861381CF1300DADFC0 /* RLAgreement */ = {
 			isa = PBXGroup;
 			children = (
+				169B8F231382ACD9000F5B66 /* RLAgreementViewController.xib */,
 				162E228F1381CF1300DADFC0 /* RLAgreementAppDelegate.h */,
 				162E22901381CF1300DADFC0 /* RLAgreementAppDelegate.m */,
 				162E22A01381D67200DADFC0 /* RootViewController.h */,
@@ -94,7 +95,6 @@
 				162E22921381CF1300DADFC0 /* MainWindow.xib */,
 				162E22951381CF1300DADFC0 /* RLAgreementViewController.h */,
 				162E22961381CF1300DADFC0 /* RLAgreementViewController.m */,
-				162E22981381CF1300DADFC0 /* RLAgreementViewController.xib */,
 				162E22871381CF1300DADFC0 /* Supporting Files */,
 			);
 			path = RLAgreement;
@@ -161,9 +161,9 @@
 			files = (
 				162E228B1381CF1300DADFC0 /* InfoPlist.strings in Resources */,
 				162E22941381CF1300DADFC0 /* MainWindow.xib in Resources */,
-				162E229A1381CF1300DADFC0 /* RLAgreementViewController.xib in Resources */,
 				162E22A41381D67200DADFC0 /* RootViewController.xib in Resources */,
 				162E22AC1381DF9D00DADFC0 /* File1.html in Resources */,
+				169B8F241382ACD9000F5B66 /* RLAgreementViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -198,14 +198,6 @@
 				162E22931381CF1300DADFC0 /* en */,
 			);
 			name = MainWindow.xib;
-			sourceTree = "<group>";
-		};
-		162E22981381CF1300DADFC0 /* RLAgreementViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				162E22991381CF1300DADFC0 /* en */,
-			);
-			name = RLAgreementViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -290,6 +282,7 @@
 				162E229F1381CF1300DADFC0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
