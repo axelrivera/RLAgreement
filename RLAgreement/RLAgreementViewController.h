@@ -10,6 +10,8 @@
 #import <MessageUI/MessageUI.h>
 #import <MessageUI/MFMailComposeViewController.h>
 
+extern NSString * const kRLAgreementIdentifier;
+
 @interface RLAgreementViewController : UIViewController <MFMailComposeViewControllerDelegate> {
     NSArray *htmlFiles_;
 	NSUInteger currentIndex_;
@@ -21,5 +23,6 @@
 
 @property (nonatomic, retain) IBOutlet UIWebView *webView;
 @property (nonatomic, retain) IBOutlet UIToolbar *toolBar;
+@property (nonatomic) BOOL isAgreementValid;
 
 @end

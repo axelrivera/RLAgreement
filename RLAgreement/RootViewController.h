@@ -13,4 +13,9 @@
     
 }
 
+@property (nonatomic, retain) IBOutlet UILabel *agreementLabel;
+
+- (IBAction)agreementShow:(id)sender;
+- (IBAction)agreementReset:(id)sender;
+
 @end

@@ -28,7 +28,10 @@
 	UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:agreementController];
 	[agreementController release];
 	
-	[self.viewController presentModalViewController:navController animated:YES];
+	BOOL validAgreement = [[NSUserDefaults standardUserDefaults] boolForKey:kRLAgreementIdentifier];
+	if (!validAgreement) {
+		[self.viewController presentModalViewController:navController animated:YES];
+	}
 	
     return YES;
 }

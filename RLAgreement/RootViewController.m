@@ -7,21 +7,30 @@
 //
 
 #import "RootViewController.h"
+#import "RLAgreementViewController.h"
 
+@interface RootViewController (Private)
+
+- (void)setLabelText;
+
+@end
 
 @implementation RootViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+@synthesize agreementLabel = agreementLabel_;
+
+- (id)init
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
+	self = [super initWithNibName:@"RootViewController" bundle:nil];
+	if (self) {
+		// Initialization Code
+	}
+	return self;
 }
 
 - (void)dealloc
 {
+	[agreementLabel_ release];
     [super dealloc];
 }
 
@@ -46,12 +55,57 @@
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+	self.agreementLabel = nil;
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+	[super viewWillAppear:animated];
+	[self setLabelText];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+#pragma mark - Private Methods
+
+- (void)setLabelText
+{
+	BOOL validAgreement = [[NSUserDefaults standardUserDefaults] boolForKey:kRLAgreementIdentifier];
+	
+	NSString *agreementString;
+	
+	if (validAgreement) {
+		agreementString = @"YES";
+	} else {
+		agreementString = @"NO";
+	}
+	
+	self.agreementLabel.text = [NSString stringWithFormat:@"Value for kRLAgreementIdentifier\nin NSUserDefaults: %@", agreementString];
+}
+
+#pragma mark - Custom Actions
+
+- (IBAction)agreementShow:(id)sender
+{
+	RLAgreementViewController *agreementController = [[RLAgreementViewController alloc] init];
+	
+	UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:agreementController];
+	
+	[agreementController release];
+	
+	[self presentModalViewController:navController animated:YES];
+	[navController release];
+}
+
+- (IBAction)agreementReset:(id)sender
+{
+	[[NSUserDefaults standardUserDefaults] setBool:NO forKey:kRLAgreementIdentifier];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+	[self setLabelText];
 }
 
 @end
