@@ -2,8 +2,8 @@
 //  RLAgreementViewController.m
 //  RLAgreement
 //
-//  Created by arn on 5/16/11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
+//  Created by Axel Rivera on 5/16/11.
+//  Copyright 2011 Axel Rivera. All rights reserved.
 //
 
 #import "RLAgreementViewController.h"
@@ -11,6 +11,8 @@
 NSString * const kRLAgreementIdentifier = @"RLAgreementIdentifier";
 
 @interface RLAgreementViewController (Private)
+
+// Private Methods
 
 - (void)setupToolBar;
 
@@ -26,16 +28,29 @@ NSString * const kRLAgreementIdentifier = @"RLAgreementIdentifier";
 
 @end
 
+// Some constants used within the controller
+
 static NSString * const kRLViewControllerTitle = @"Terms of Service";
+
+// File extension to be used in all the files
+// This is used in combination with the values of htmlFiles_ array
 static NSString * const kFileExtension = @"html";
+
 static NSString * const kNotFoundString = @"<html><body/><h1>File Not Found</h1></body></html>";
 
+// You can include a PDF file with the full Agreement
+// Your users will be able to send the agreement to themselves by e-mail.
+// Don't forget to include the PDF file within your code.
 // Name Only (NO Extension) 
 // You can use an empty string (@"") if you don't want to use a PDF file
 static NSString * const kPDFName = @"Agreement";
 
+// Extension of the for the PDF file
 // Only PDF is Supported
 static NSString * const kPDFExtension = @"pdf";
+
+// Text for the Agree Button
+static NSString * const kAgreeButtonText = @"I Agree";
 
 @implementation RLAgreementViewController
 
@@ -47,6 +62,8 @@ static NSString * const kPDFExtension = @"pdf";
 {
 	self = [super initWithNibName:@"RLAgreementViewController" bundle:nil];
 	if (self) {
+		
+		// Check if the user has a valid agreement
 		BOOL validAgreement = [[NSUserDefaults standardUserDefaults] boolForKey:kRLAgreementIdentifier];
 		
 		self.isAgreementValid = NO;
@@ -55,6 +72,8 @@ static NSString * const kPDFExtension = @"pdf";
 			self.isAgreementValid = YES;
 		}
 		
+		// If the user has a valid agreement show a "Done" button in the left button inside the Navigation Bar
+		// This is used if you wan't to show the agreement later on within the app after the user has agreed to your terms.
 		if (self.isAgreementValid) {
 			UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone
 																						target:self
@@ -63,6 +82,7 @@ static NSString * const kPDFExtension = @"pdf";
 			[doneButton release];
 		}
 		
+		// Check if there's a PDF file available and create an e-mail button
 		if ([self isPDFAvailable]) {
 			UIBarButtonItem *emailButton = [[UIBarButtonItem alloc] initWithTitle:@"E-mail"
 																			style:UIBarButtonItemStyleBordered
@@ -71,13 +91,17 @@ static NSString * const kPDFExtension = @"pdf";
 			[emailButton release];
 		}
 		
-		// Define All the files to be shown
-		// Files must NOT include the file extension
+		// Define All the files to be shown in this array.
+		// Files must NOT include the file extension.
+		// You can include as many files as you want just don't forget to iclude the files in your code.
+		// The array must not be EMPTY!!!
+		
 		htmlFiles_ = [[NSArray alloc] initWithObjects:
 					  @"File1",
 					  @"File2",
 					  nil];
 		
+		// Make sure you start at page 1
 		currentIndex_ = 0;
 	}
 	return self;
@@ -133,12 +157,16 @@ static NSString * const kPDFExtension = @"pdf";
 
 - (void)prevPage
 {
+	// Decrease page index and reload page
+	// The previous button will be disabled automatically when necessary
 	currentIndex_--;
 	[self loadCurrentPage];
 }
 
 - (void)nextPage
 {
+	// Increase page index and reload page
+	// The next button will be disabled when necessary
 	currentIndex_++;
 	[self loadCurrentPage];
 }
@@ -148,6 +176,7 @@ static NSString * const kPDFExtension = @"pdf";
 	MFMailComposeViewController *mailer = [[MFMailComposeViewController alloc] init];
 	mailer.mailComposeDelegate = self;
 	
+	// Load the contents of the PDF file
 	NSData *pdfData = [NSData dataWithContentsOfFile:[self PDFFilePath]];
 	[mailer addAttachmentData:pdfData
 					 mimeType:@"application/pdf"
@@ -161,21 +190,25 @@ static NSString * const kPDFExtension = @"pdf";
 
 - (void)agreementAlert
 {
+	// Agreement alert to confirm that the user has accepted the agreement.
 	NSString *messageString = [NSString stringWithFormat:
-							   @"By tapping the \"I Agree\" button, you confirm that you have read the terms and "
-							   @"conditions, that you understand them and that you agree to be bound by them."];
+							   @"By tapping the %@ button, you confirm that you have read the terms and "
+							   @"conditions, that you understand them and that you agree to be bound by them.",
+							   kAgreeButtonText];
 	
 	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:kRLViewControllerTitle
 													message:messageString
 												   delegate:self
 										  cancelButtonTitle:@"Cancel"
-										  otherButtonTitles:@"I Agree", nil];
+										  otherButtonTitles:kAgreeButtonText, nil];
 	[alert show];
 	[alert release];
 }
 
 - (void)agreementDone
 {
+	// The user has accepted the Agreement
+	// Store the confirmation in NSUserDefaults
 	[[NSUserDefaults standardUserDefaults] setBool:YES forKey:kRLAgreementIdentifier];
     [[NSUserDefaults standardUserDefaults] synchronize];
     self.isAgreementValid = YES;
@@ -231,6 +264,7 @@ static NSString * const kPDFExtension = @"pdf";
 	[fixedSpace release];
 	[pagesItem release];
 	
+	// Show the agree button only if the user hasn't accepted the agreement yet
 	if (self.isAgreementValid) {
 		UIBarButtonItem *dummySpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace
 																					target:self
@@ -239,7 +273,7 @@ static NSString * const kPDFExtension = @"pdf";
 		[toolBarItems addObject:dummySpace];
 		[dummySpace release];
 	} else {
-		UIBarButtonItem *agreeButton = [[UIBarButtonItem alloc] initWithTitle:@"I Agree"
+		UIBarButtonItem *agreeButton = [[UIBarButtonItem alloc] initWithTitle:kAgreeButtonText
 																		style:UIBarButtonItemStyleDone
 																	   target:self
 																	   action:@selector(agreementAlert)];
@@ -255,10 +289,12 @@ static NSString * const kPDFExtension = @"pdf";
 {
 	NSInteger fileCount = [htmlFiles_ count];
 	
+	// Check if the page index is out of range and exit with an error
 	NSAssert(fileCount > 0, @"The File Array cannot be empty");
 	NSAssert(currentIndex_ >=  0, @"The current index is out of range");
 	NSAssert(currentIndex_ < fileCount, @"The current index is out of range");
 	
+	// Enable/Disable previous and next buttons according to the contents of htmlFiles_ array
 	if (currentIndex_ == 0) {
 		prevButton_.enabled = NO;
 	} else {
@@ -276,6 +312,8 @@ static NSString * const kPDFExtension = @"pdf";
 	
 	NSFileManager *fileManager = [NSFileManager defaultManager];
 	
+	// Check if the file provided by htmlFiles_ array exists
+	// Otherwhise display an empty page
 	if ([fileManager fileExistsAtPath:filePath]) {
 		NSURL *url = [NSURL fileURLWithPath:filePath];
 		[webView_ loadRequest:[NSURLRequest requestWithURL:url]];
@@ -283,6 +321,7 @@ static NSString * const kPDFExtension = @"pdf";
 		[webView_ loadHTMLString:kNotFoundString baseURL:nil];
 	}
 	
+	// Update the page label
 	pagesLabel_.text = [NSString stringWithFormat:@"Page %d of %d", currentIndex_ + 1, fileCount];
 }
 

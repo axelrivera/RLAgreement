@@ -2,8 +2,8 @@
 //  RLAgreementAppDelegate.m
 //  RLAgreement
 //
-//  Created by arn on 5/16/11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
+//  Created by Axel Rivera on 5/16/11.
+//  Copyright 2011 Axel Rivera. All rights reserved.
 //
 
 #import "RLAgreementAppDelegate.h"
@@ -22,16 +22,6 @@
 	 
 	self.window.rootViewController = self.viewController;
 	[self.window makeKeyAndVisible];
-	
-	RLAgreementViewController *agreementController = [[RLAgreementViewController alloc] init];
-	
-	UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:agreementController];
-	[agreementController release];
-	
-	BOOL validAgreement = [[NSUserDefaults standardUserDefaults] boolForKey:kRLAgreementIdentifier];
-	if (!validAgreement) {
-		[self.viewController presentModalViewController:navController animated:YES];
-	}
 	
     return YES;
 }
@@ -60,10 +50,19 @@
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
-{
-	/*
-	 Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-	 */
+{	
+	// Check the value of the Agreement Identifier in NSUserDefaults
+	// and call the RLAgreementViewController if the user hasn't accepted the terms.
+	BOOL validAgreement = [[NSUserDefaults standardUserDefaults] boolForKey:kRLAgreementIdentifier];
+	if (!validAgreement) {
+		RLAgreementViewController *agreementController = [[RLAgreementViewController alloc] init];
+		
+		UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:agreementController];
+		
+		[agreementController release];
+		
+		[self.viewController presentModalViewController:navController animated:YES];
+	}
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
