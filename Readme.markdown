@@ -8,10 +8,10 @@ The Agreement text is stored in one or more HTML files that can be formated as n
 
 Compile the code in Xcode to checkout the demo.  You might have to change some of the code/text depending on your specific needs.
 
-* Add MessageUI.framework to your project
-* Copy the files `RLAgreementAppDelegate.h` and `RLAgreementAppDelegate` to your code
-* Copy the image files for the "previous" and "next" page buttons (prev.png, prev@2x.png, next.png, next@2x.png)
-* Modify the method `applicationDidBecomeActive:` in your App Delegate. Check out RLAgreement for an example
+* Add `MessageUI.framework` to your project
+* Copy the files `RLAgreementViewController.h`, `RLAgreementViewController.m` and `RLAgreementViewController.xib` to your code
+* Copy the image files for the "previous" and "next" page buttons (`prev.png`, `prev@2x.png`, `next.png`, `next@2x.png`)
+* Modify the method `applicationDidBecomeActive:` in your App Delegate. Check out `RLAgreementAppDelegate.m` for an example
 
 # To Do
 
