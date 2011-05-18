@@ -52,7 +52,7 @@
 		162E22AB1381DF9D00DADFC0 /* File1.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = File1.html; sourceTree = "<group>"; };
 		169B8F231382ACD9000F5B66 /* RLAgreementViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RLAgreementViewController.xib; sourceTree = "<group>"; };
 		16A6A4D91384382B00705D88 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = SOURCE_ROOT; };
-		16A6A4E41384546300705D88 /* Readme.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Readme.markdown; sourceTree = "<group>"; };
+		16A6A4E41384546300705D88 /* Readme.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Readme.markdown; path = ../Readme.markdown; sourceTree = "<group>"; };
 		16C1026A138417530007E6EA /* Agreement.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Agreement.pdf; sourceTree = "<group>"; };
 		16D431D813830F5500CAC405 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		16E86B56138350AE00883664 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
