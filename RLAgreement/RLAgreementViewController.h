@@ -7,10 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MessageUI/MessageUI.h>
+#import <MessageUI/MFMailComposeViewController.h>
 
-@interface RLAgreementViewController : UIViewController {
+@interface RLAgreementViewController : UIViewController <MFMailComposeViewControllerDelegate> {
     NSArray *htmlFiles_;
-	NSString *currentFile_;
+	NSUInteger currentIndex_;
+	
+	UIBarButtonItem *prevButton_;
+	UIBarButtonItem *nextButton_;
+	UILabel *pagesLabel_;
 }
 
 @property (nonatomic, retain) IBOutlet UIWebView *webView;
